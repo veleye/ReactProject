@@ -5,12 +5,21 @@ class User extends Component {
   render() {
     const {name, department, age} = this.props;
     return (
-      <div>
-        <ul>
-          <li>isim : {name} <i className="far fa-trash-alt"></i> </li>
-          <li>department : {department}</li>
-          <li>age : {age}</li>
-        </ul>
+      <div className = "col-md-20 mb-4">
+       <div className = "card">
+        <div className = "card-header d-flex  justify-content-between">
+          <h4 className = "d-inline">{name}</h4>
+            <i className = "far fa-trash-alt" style={{cursor : "pointer"}}></i>
+        </div>
+
+        <div className="card-body">
+          <p className="card-text">Name : {name}</p>
+          <p className="card-text">Department : {department}</p>
+          <p className="card-text">Age : {age}</p>
+        </div>
+
+       </div>
+       
       </div>
     );
   }
