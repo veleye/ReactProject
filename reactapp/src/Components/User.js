@@ -12,28 +12,31 @@ class User extends Component {
 
   clickEvent = e => {
     this.setState({
-      isVisible : !this.state.isVisible
+    
     });
   };
 
+  deleteUserEvent = (e) => {
+    const {id, deleteUser} = this.props;
+    deleteUser(id);
+  }
+
   render() {
-    const { name, department, age } = this.props;
+    const { id, name, age} = this.props;
     return (
       <div className="col-md-20 mb-4">
         <div className="card">
           <div className="card-header d-flex  justify-content-between">
-            <h4 className="d-inline" onClick={this.clickEvent}>
-              {name}{" "}
-            </h4>
-            <i className="far fa-trash-alt" style={{ cursor: "pointer" }} />
+            <h4 className="d-inline" onClick={this.clickEvent}></h4>
+            <i className="far fa-trash-alt" onClick = {this.deleteUserEvent} style={{ cursor: "pointer" }} />
           </div>
-          {this.state.isVisible ? (
+    
             <div className="card-body">
+              <p className="card-text">Id : {id}</p>
               <p className="card-text">Name : {name}</p>
-              <p className="card-text">Department : {department}</p>
               <p className="card-text">Age : {age}</p>
             </div>
-          ) : null}
+    
         </div>
       </div>
     );
